@@ -1,6 +1,10 @@
 //score
 let playerScore=0
 let computerScore=0
+function keepScore(){
+    let score=document.querySelector("#score");
+    score.textContent=(" Player "+playerScore+" - "+"Computer "+computerScore);
+};
 //function for random Rock, Paper or Scissors
 function computerPlay(){
     let options=["rock","paper","scissors"];
@@ -31,10 +35,10 @@ buttons.forEach((button) => {
         let results=document.querySelector("#results");
         let round= document.createElement("div");
         round.textContent=text;
-        results.appendChild(round);}
-
-        //console.log(singleRound(button.id,computerPlay()))});
-)})
+        results.appendChild(round);
+        keepScore();
+    })
+})
 
 
 //funcion for a game of 5 rounds
