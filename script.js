@@ -13,7 +13,12 @@ function computerPlay(){
 };
 //function for a single round of the game
 function singleRound(playerSelection,computerSelection){ 
-    if (playerSelection=== computerSelection){return "tie"}
+    if (playerScore>4)
+    {return "YOU WIN!!"}
+    else if (computerScore>4)
+    {return "YOU LOSE!!"}
+    else if (playerSelection=== computerSelection)
+    {return "tie"}
     else if (playerSelection==="rock" && computerSelection==="paper")
     {return "You Lose, Paper beats Rock. "+"Computer score: "+ ++computerScore}
     else if (playerSelection==="rock" && computerSelection==="scissors")
@@ -26,7 +31,6 @@ function singleRound(playerSelection,computerSelection){
     {return "You Lose, Rock beats Scissors. "+"Computer score: "+ ++computerScore}
     else if (playerSelection==="scissors" && computerSelection==="paper")
     {return "You Win, Scissors beats Paper. "+"Player score: "+ ++playerScore}
-    else {return "That item is not in the game!"}
 };
 const buttons=document.querySelectorAll(".option");
 buttons.forEach((button) => {
@@ -40,18 +44,6 @@ buttons.forEach((button) => {
     })
 })
 
+if (playerScore>4){"YOY WIN!!"}
 
-//funcion for a game of 5 rounds
-/*function game()
-{ 
-    for (let i=0;i<5;i++)
-    {  
-        playerSelection=prompt("choose");
-        console.log(singleRound(playerSelection,computerPlay()))
-        if (i===4 && playerScore>computerScore)
-        {return console.log("YOU WIN!"+ playerScore+"-"+computerScore)}
-        else if (i===4 && playerScore<computerScore)
-        {return console.log("YOU LOSE!"+ playerScore+"-"+computerScore)}       
-    }
-};
-game();*/
+
