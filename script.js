@@ -1,10 +1,17 @@
 //score
-let playerScore=0
-let computerScore=0
+let playerScore=0;
+let computerScore=0;
+const winningScore=4;
 function keepScore(){
     let score=document.querySelector("#score");
     score.textContent=(" Player "+playerScore+" - "+"Computer "+computerScore);
 };
+function declareWinner(){
+    let results=document.querySelector("#results");
+    if (playerScore>winningScore)
+    {return results.textContent="YOU WIN!!"}
+    else if (computerScore>winningScore)
+    {return results.textContent="YOU LOSE!!"}}
 //function for random Rock, Paper or Scissors
 function computerPlay(){
     let options=["rock","paper","scissors"];
@@ -13,11 +20,8 @@ function computerPlay(){
 };
 //function for a single round of the game
 function singleRound(playerSelection,computerSelection){ 
-    if (playerScore>4)
-    {return "YOU WIN!!"}
-    else if (computerScore>4)
-    {return "YOU LOSE!!"}
-    else if (playerSelection=== computerSelection)
+    if (computerScore>winningScore||playerScore>winningScore){}
+    else if(playerSelection=== computerSelection)
     {return "tie"}
     else if (playerSelection==="rock" && computerSelection==="paper")
     {return "You Lose, Paper beats Rock. "+"Computer score: "+ ++computerScore}
@@ -37,13 +41,8 @@ buttons.forEach((button) => {
     button.addEventListener("click", ()=>{
         let text=singleRound(button.id,computerPlay());
         let results=document.querySelector("#results");
-        let round= document.createElement("div");
-        round.textContent=text;
-        results.appendChild(round);
+        results.textContent=text;
         keepScore();
+        declareWinner();
     })
 })
-
-if (playerScore>4){"YOY WIN!!"}
-
-
